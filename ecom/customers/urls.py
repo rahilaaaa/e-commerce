@@ -8,5 +8,7 @@ from django.templatetags.static import static
 urlpatterns = [
 
     path('account',views.Account,name='account'),
+    path('logout',views.signout,name='logout'),
+
 
 ]

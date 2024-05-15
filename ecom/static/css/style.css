@@ -5,7 +5,8 @@
 }
 
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family:'Poppins', Arial, Helvetica, sans-serif;
+	font-size: 13px;
 }
 
 .navbar
@@ -388,7 +389,7 @@ th:last-child{
 .form-container{
     background: #fff;
     width: 300px;
-    height: 400px;
+    height: 425px;
     position: relative;
     text-align: center;
     padding: 20px 0;
@@ -396,6 +397,14 @@ th:last-child{
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
+.error{
+    color: red;
+}
+
+.success{
+    color: green;
+}
+
 .form-container span{
     font-weight: bold;
     padding: 0 10px;
