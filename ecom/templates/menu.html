@@ -7,18 +7,52 @@
         <ul id="MenuItems">
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'list_product' %}">Products</a></li>
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-        
-            {% else %}
-
+            {% if not  user.is_authenticated %}
+                
             <li><a href="{% url 'account' %}">Account</a></li>
+            {% else %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'orders' %}">Orders</a></li>
+
+            {% endif %}
+            {% if  user.is_authenticated %}
+
+        <li class="cart-icon">
+            <a href="{% url 'cart' %}">
+                <img src="{% static 'images/cart.png' %}" width="30px" height="30px">
+                {% if cart_count > 0 %}
+                            <span class="cart-count">{{ cart_count }}</span>
+                {% endif %}
+            </a>
+        </li>
+
+            <img src="{% static 'images/menu.png' %}" class="menu-icon" onclick="menutoggle()">
+            
+          
+
             {% endif %}
 
         </ul>
     </nav>
-    <!--
-    <a href="{% url 'cart' %}"><img src="{% static 'images/cart.png' %}" width="30px" height="30px"></a>
-    <img src="{% static 'images/menu.png' %}" class="menu-icon" onclick="menutoggle()">
-    -->
+
+    
 </div>
+
+<style>
+   .cart-icon {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+</style>

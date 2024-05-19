@@ -20,7 +20,7 @@ def Product_list(request):
     if request.GET:
         page = request.GET.get('page',1)
     list_product = Product.objects.order_by('-priority')
-    product_paginator = Paginator(list_product,10)
+    product_paginator = Paginator(list_product,7)
     list_product = product_paginator.get_page(page)
     context = {'products':list_product}
     return render(request,'product_layout.html',context)
